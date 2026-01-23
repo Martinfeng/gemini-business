@@ -87,16 +87,10 @@
                 <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
                     <div style="font-size: 11px; color: #6b6b6b; margin-bottom: 6px;">支持的模型</div>
                     <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        {% for model in available_models %}
                         <span
-                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">gemini-auto</span>
-                        <span
-                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">gemini-2.5-flash</span>
-                        <span
-                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">gemini-2.5-pro</span>
-                        <span
-                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">gemini-3-flash-preview</span>
-                        <span
-                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">gemini-3-pro-preview</span>
+                            style="background: #f0f0f2; color: #1d1d1f; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;">{{ model }}</span>
+                        {% endfor %}
                     </div>
                     <div style="margin-top: 8px; font-size: 11px; color: #86868b;">
                         📸 图片生成可在"系统设置"自定义配置
@@ -609,30 +603,13 @@
                                 <label>支持的模型</label>
                                 <div id="setting-image-models"
                                     style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+                                    {% for model in base_models %}
                                     <label
                                         style="display: flex; align-items: center; gap: 6px; font-weight: normal; font-size: 12px;">
-                                        <input type="checkbox" value="gemini-3-pro-preview" style="width: auto;" />
-                                        gemini-3-pro-preview
+                                        <input type="checkbox" value="{{ model }}" style="width: auto;" />
+                                        {{ model }}
                                     </label>
-                                    <label
-                                        style="display: flex; align-items: center; gap: 6px; font-weight: normal; font-size: 12px;">
-                                        <input type="checkbox" value="gemini-2.5-pro" style="width: auto;" />
-                                        gemini-2.5-pro
-                                    </label>
-                                    <label
-                                        style="display: flex; align-items: center; gap: 6px; font-weight: normal; font-size: 12px;">
-                                        <input type="checkbox" value="gemini-2.5-flash" style="width: auto;" />
-                                        gemini-2.5-flash
-                                    </label>
-                                    <label
-                                        style="display: flex; align-items: center; gap: 6px; font-weight: normal; font-size: 12px;">
-                                        <input type="checkbox" value="gemini-3-flash-preview" style="width: auto;" />
-                                        gemini-3-flash-preview
-                                    </label>
-                                    <label
-                                        style="display: flex; align-items: center; gap: 6px; font-weight: normal; font-size: 12px;">
-                                        <input type="checkbox" value="gemini-auto" style="width: auto;" /> gemini-auto
-                                    </label>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
